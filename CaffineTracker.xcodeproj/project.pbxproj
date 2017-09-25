@@ -1,0 +1,606 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		65AE2AC71F79BDDE009946A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AE2AC61F79BDDE009946A7 /* AppDelegate.swift */; };
+		65AE2AC91F79BDDE009946A7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AE2AC81F79BDDE009946A7 /* ViewController.swift */; };
+		65AE2ACC1F79BDDE009946A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65AE2ACA1F79BDDE009946A7 /* Main.storyboard */; };
+		65AE2ACE1F79BDDE009946A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65AE2ACD1F79BDDE009946A7 /* Assets.xcassets */; };
+		65AE2AD11F79BDDE009946A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65AE2ACF1F79BDDE009946A7 /* LaunchScreen.storyboard */; };
+		65AE2AD61F79BDDE009946A7 /* CaffineTracker WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 65AE2AD51F79BDDE009946A7 /* CaffineTracker WatchKit App.app */; };
+		65AE2ADC1F79BDDE009946A7 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65AE2ADA1F79BDDE009946A7 /* Interface.storyboard */; };
+		65AE2ADE1F79BDDE009946A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65AE2ADD1F79BDDE009946A7 /* Assets.xcassets */; };
+		65AE2AE51F79BDDF009946A7 /* CaffineTracker WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 65AE2AE41F79BDDF009946A7 /* CaffineTracker WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		65AE2AEA1F79BDDF009946A7 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AE2AE91F79BDDF009946A7 /* InterfaceController.swift */; };
+		65AE2AEC1F79BDDF009946A7 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AE2AEB1F79BDDF009946A7 /* ExtensionDelegate.swift */; };
+		65AE2AEE1F79BDDF009946A7 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AE2AED1F79BDDF009946A7 /* ComplicationController.swift */; };
+		65AE2AF01F79BDDF009946A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65AE2AEF1F79BDDF009946A7 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		65AE2AD71F79BDDE009946A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 65AE2ABB1F79BDDE009946A7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 65AE2AD41F79BDDE009946A7;
+			remoteInfo = "CaffineTracker WatchKit App";
+		};
+		65AE2AE61F79BDDF009946A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 65AE2ABB1F79BDDE009946A7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 65AE2AE31F79BDDF009946A7;
+			remoteInfo = "CaffineTracker WatchKit Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		65AE2AF71F79BDDF009946A7 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				65AE2AE51F79BDDF009946A7 /* CaffineTracker WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65AE2AFB1F79BDDF009946A7 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				65AE2AD61F79BDDE009946A7 /* CaffineTracker WatchKit App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		65AE2AC31F79BDDE009946A7 /* CaffineTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CaffineTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		65AE2AC61F79BDDE009946A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		65AE2AC81F79BDDE009946A7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		65AE2ACB1F79BDDE009946A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		65AE2ACD1F79BDDE009946A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		65AE2AD01F79BDDE009946A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		65AE2AD21F79BDDE009946A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65AE2AD51F79BDDE009946A7 /* CaffineTracker WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CaffineTracker WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		65AE2ADB1F79BDDE009946A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		65AE2ADD1F79BDDE009946A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		65AE2ADF1F79BDDE009946A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65AE2AE41F79BDDF009946A7 /* CaffineTracker WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "CaffineTracker WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		65AE2AE91F79BDDF009946A7 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		65AE2AEB1F79BDDF009946A7 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		65AE2AED1F79BDDF009946A7 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		65AE2AEF1F79BDDF009946A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		65AE2AF11F79BDDF009946A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		65AE2AC01F79BDDE009946A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65AE2AE11F79BDDF009946A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		65AE2ABA1F79BDDE009946A7 = {
+			isa = PBXGroup;
+			children = (
+				65AE2AC51F79BDDE009946A7 /* CaffineTracker */,
+				65AE2AD91F79BDDE009946A7 /* CaffineTracker WatchKit App */,
+				65AE2AE81F79BDDF009946A7 /* CaffineTracker WatchKit Extension */,
+				65AE2AC41F79BDDE009946A7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		65AE2AC41F79BDDE009946A7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				65AE2AC31F79BDDE009946A7 /* CaffineTracker.app */,
+				65AE2AD51F79BDDE009946A7 /* CaffineTracker WatchKit App.app */,
+				65AE2AE41F79BDDF009946A7 /* CaffineTracker WatchKit Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		65AE2AC51F79BDDE009946A7 /* CaffineTracker */ = {
+			isa = PBXGroup;
+			children = (
+				65AE2AC61F79BDDE009946A7 /* AppDelegate.swift */,
+				65AE2AC81F79BDDE009946A7 /* ViewController.swift */,
+				65AE2ACA1F79BDDE009946A7 /* Main.storyboard */,
+				65AE2ACD1F79BDDE009946A7 /* Assets.xcassets */,
+				65AE2ACF1F79BDDE009946A7 /* LaunchScreen.storyboard */,
+				65AE2AD21F79BDDE009946A7 /* Info.plist */,
+			);
+			path = CaffineTracker;
+			sourceTree = "<group>";
+		};
+		65AE2AD91F79BDDE009946A7 /* CaffineTracker WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				65AE2ADA1F79BDDE009946A7 /* Interface.storyboard */,
+				65AE2ADD1F79BDDE009946A7 /* Assets.xcassets */,
+				65AE2ADF1F79BDDE009946A7 /* Info.plist */,
+			);
+			path = "CaffineTracker WatchKit App";
+			sourceTree = "<group>";
+		};
+		65AE2AE81F79BDDF009946A7 /* CaffineTracker WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				65AE2AE91F79BDDF009946A7 /* InterfaceController.swift */,
+				65AE2AEB1F79BDDF009946A7 /* ExtensionDelegate.swift */,
+				65AE2AED1F79BDDF009946A7 /* ComplicationController.swift */,
+				65AE2AEF1F79BDDF009946A7 /* Assets.xcassets */,
+				65AE2AF11F79BDDF009946A7 /* Info.plist */,
+			);
+			path = "CaffineTracker WatchKit Extension";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		65AE2AC21F79BDDE009946A7 /* CaffineTracker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65AE2AFC1F79BDDF009946A7 /* Build configuration list for PBXNativeTarget "CaffineTracker" */;
+			buildPhases = (
+				65AE2ABF1F79BDDE009946A7 /* Sources */,
+				65AE2AC01F79BDDE009946A7 /* Frameworks */,
+				65AE2AC11F79BDDE009946A7 /* Resources */,
+				65AE2AFB1F79BDDF009946A7 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				65AE2AD81F79BDDE009946A7 /* PBXTargetDependency */,
+			);
+			name = CaffineTracker;
+			productName = CaffineTracker;
+			productReference = 65AE2AC31F79BDDE009946A7 /* CaffineTracker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		65AE2AD41F79BDDE009946A7 /* CaffineTracker WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65AE2AF81F79BDDF009946A7 /* Build configuration list for PBXNativeTarget "CaffineTracker WatchKit App" */;
+			buildPhases = (
+				65AE2AD31F79BDDE009946A7 /* Resources */,
+				65AE2AF71F79BDDF009946A7 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				65AE2AE71F79BDDF009946A7 /* PBXTargetDependency */,
+			);
+			name = "CaffineTracker WatchKit App";
+			productName = "CaffineTracker WatchKit App";
+			productReference = 65AE2AD51F79BDDE009946A7 /* CaffineTracker WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		65AE2AE31F79BDDF009946A7 /* CaffineTracker WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65AE2AF41F79BDDF009946A7 /* Build configuration list for PBXNativeTarget "CaffineTracker WatchKit Extension" */;
+			buildPhases = (
+				65AE2AE01F79BDDF009946A7 /* Sources */,
+				65AE2AE11F79BDDF009946A7 /* Frameworks */,
+				65AE2AE21F79BDDF009946A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CaffineTracker WatchKit Extension";
+			productName = "CaffineTracker WatchKit Extension";
+			productReference = 65AE2AE41F79BDDF009946A7 /* CaffineTracker WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		65AE2ABB1F79BDDE009946A7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = el;
+				TargetAttributes = {
+					65AE2AC21F79BDDE009946A7 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					65AE2AD41F79BDDE009946A7 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					65AE2AE31F79BDDF009946A7 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 65AE2ABE1F79BDDE009946A7 /* Build configuration list for PBXProject "CaffineTracker" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 65AE2ABA1F79BDDE009946A7;
+			productRefGroup = 65AE2AC41F79BDDE009946A7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				65AE2AC21F79BDDE009946A7 /* CaffineTracker */,
+				65AE2AD41F79BDDE009946A7 /* CaffineTracker WatchKit App */,
+				65AE2AE31F79BDDF009946A7 /* CaffineTracker WatchKit Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		65AE2AC11F79BDDE009946A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65AE2AD11F79BDDE009946A7 /* LaunchScreen.storyboard in Resources */,
+				65AE2ACE1F79BDDE009946A7 /* Assets.xcassets in Resources */,
+				65AE2ACC1F79BDDE009946A7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65AE2AD31F79BDDE009946A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65AE2ADE1F79BDDE009946A7 /* Assets.xcassets in Resources */,
+				65AE2ADC1F79BDDE009946A7 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65AE2AE21F79BDDF009946A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65AE2AF01F79BDDF009946A7 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		65AE2ABF1F79BDDE009946A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65AE2AC91F79BDDE009946A7 /* ViewController.swift in Sources */,
+				65AE2AC71F79BDDE009946A7 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65AE2AE01F79BDDF009946A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65AE2AEC1F79BDDF009946A7 /* ExtensionDelegate.swift in Sources */,
+				65AE2AEA1F79BDDF009946A7 /* InterfaceController.swift in Sources */,
+				65AE2AEE1F79BDDF009946A7 /* ComplicationController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		65AE2AD81F79BDDE009946A7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 65AE2AD41F79BDDE009946A7 /* CaffineTracker WatchKit App */;
+			targetProxy = 65AE2AD71F79BDDE009946A7 /* PBXContainerItemProxy */;
+		};
+		65AE2AE71F79BDDF009946A7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 65AE2AE31F79BDDF009946A7 /* CaffineTracker WatchKit Extension */;
+			targetProxy = 65AE2AE61F79BDDF009946A7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		65AE2ACA1F79BDDE009946A7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				65AE2ACB1F79BDDE009946A7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		65AE2ACF1F79BDDE009946A7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				65AE2AD01F79BDDE009946A7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		65AE2ADA1F79BDDE009946A7 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				65AE2ADB1F79BDDE009946A7 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		65AE2AF21F79BDDF009946A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		65AE2AF31F79BDDF009946A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		65AE2AF51F79BDDF009946A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9E9BXKG4Q6;
+				INFOPLIST_FILE = "CaffineTracker WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.elliotlockerman.CaffineTracker.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+			};
+			name = Debug;
+		};
+		65AE2AF61F79BDDF009946A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9E9BXKG4Q6;
+				INFOPLIST_FILE = "CaffineTracker WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.elliotlockerman.CaffineTracker.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+			};
+			name = Release;
+		};
+		65AE2AF91F79BDDF009946A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9E9BXKG4Q6;
+				IBSC_MODULE = CaffineTracker_WatchKit_Extension;
+				INFOPLIST_FILE = "CaffineTracker WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.elliotlockerman.CaffineTracker.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+			};
+			name = Debug;
+		};
+		65AE2AFA1F79BDDF009946A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9E9BXKG4Q6;
+				IBSC_MODULE = CaffineTracker_WatchKit_Extension;
+				INFOPLIST_FILE = "CaffineTracker WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.elliotlockerman.CaffineTracker.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+			};
+			name = Release;
+		};
+		65AE2AFD1F79BDDF009946A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9E9BXKG4Q6;
+				INFOPLIST_FILE = CaffineTracker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.elliotlockerman.CaffineTracker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		65AE2AFE1F79BDDF009946A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9E9BXKG4Q6;
+				INFOPLIST_FILE = CaffineTracker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.elliotlockerman.CaffineTracker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		65AE2ABE1F79BDDE009946A7 /* Build configuration list for PBXProject "CaffineTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65AE2AF21F79BDDF009946A7 /* Debug */,
+				65AE2AF31F79BDDF009946A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		65AE2AF41F79BDDF009946A7 /* Build configuration list for PBXNativeTarget "CaffineTracker WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65AE2AF51F79BDDF009946A7 /* Debug */,
+				65AE2AF61F79BDDF009946A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		65AE2AF81F79BDDF009946A7 /* Build configuration list for PBXNativeTarget "CaffineTracker WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65AE2AF91F79BDDF009946A7 /* Debug */,
+				65AE2AFA1F79BDDF009946A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		65AE2AFC1F79BDDF009946A7 /* Build configuration list for PBXNativeTarget "CaffineTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65AE2AFD1F79BDDF009946A7 /* Debug */,
+				65AE2AFE1F79BDDF009946A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 65AE2ABB1F79BDDE009946A7 /* Project object */;
+}
