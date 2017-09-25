@@ -1,15 +1,43 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13196" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11055"/>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13051"/>
     </dependencies>
     <scenes>
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModuleProvider="target"/>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="CaffineTracker_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <label alignment="left" text="--h --m ago" id="Lsi-t1-2Yr"/>
+                        <label alignment="left" text="--- mg today" id="S8q-j6-ER5"/>
+                        <button width="1" height="42" alignment="left" verticalAlignment="bottom" title="Log Dose (100mg)" id="P5K-nq-Ya0">
+                            <connections>
+                                <action selector="logDose" destination="AgC-eL-Hgc" id="dmw-LJ-Pv8"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <menu key="menu" id="L3p-5c-1aD">
+                        <items>
+                            <menuItem title="Refresh" icon="repeat" id="Ttb-bw-Xeq">
+                                <connections>
+                                    <action selector="fetch" destination="AgC-eL-Hgc" id="tQv-6s-DnU"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                    <connections>
+                        <outlet property="lastDoseLabel" destination="Lsi-t1-2Yr" id="zrb-Tm-pru"/>
+                        <outlet property="totalDoseLabel" destination="S8q-j6-ER5" id="Avx-IX-rLM"/>
+                    </connections>
+                </controller>
             </objects>
+            <point key="canvasLocation" x="161" y="86"/>
         </scene>
     </scenes>
 </document>

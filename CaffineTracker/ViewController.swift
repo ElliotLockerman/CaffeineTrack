@@ -2,24 +2,86 @@
 //  ViewController.swift
 //  CaffineTracker
 //
-//  Created by EL on 9/25/17.
+//  Created by EL on 9/24/17.
 //  Copyright © 2017 el. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
 
+
+
+class ViewController: UIViewController {
+    
+    @IBOutlet var lastDoseLabel: UILabel!
+    @IBOutlet var totalDoseLabel: UILabel!
+    
+    var ago = 0;
+    var totalDose = 0;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-    }
+        
+        
+        HealthKitStuff.authorizeHealthKit { (authorized, error) in
+            
+            guard authorized else {
+                
+                let baseMessage = "HealthKit Authorization Failed"
+                
+                if let error = error {
+                    print("\(baseMessage). Reason: \(error.localizedDescription)")
+                    self.message(msg: baseMessage)
+                } else {
+                    print(baseMessage)
+                }
+                
+                return
+            }
+        }
+        
+        refresh()
 
+    }
+    
+    func draw() {
+        self.totalDoseLabel.text = String(totalDose) + " mg"
+        
+        let hours = ago / 60;
+        let minutes = ago % 60;
+        self.lastDoseLabel.text = String(hours) + "h " + String(minutes) + "m ago"
+    }
+    
+    func refresh() {
+        HealthKitStuff.getCaffData() { (dose, ago) in
+            self.ago = ago
+            self.totalDose = dose
+            self.draw()
+        }
+    }
+    
+    @IBAction func fetch(_ sender: Any) {
+        refresh()
+    }
+    
+
+    @IBAction func logDose(_ sender: Any) {
+        HealthKitStuff.logDose(dose: 100)
+        refresh()
+    }
+    
+    func message(msg: String) {
+        let alert = UIAlertController(title: "Alert", message: msg, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
 }
 

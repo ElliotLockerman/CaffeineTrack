@@ -41,5 +41,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSHealthShareUsageDescription</key>
+	<string>Heath access is required for caffine usage</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>Heath access is required for caffine usage</string>
 </dict>
 </plist>
