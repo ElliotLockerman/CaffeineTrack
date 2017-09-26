@@ -70,10 +70,10 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         // Call the handler with the timeline entries after to the given date
         if complication.family == .modularSmall {
             if let controller = WKExtension.shared().rootInterfaceController as? InterfaceController {
-                let loops = min(limit, 120/5)
+                let loops = min(limit, 120)
                 var arr = [CLKComplicationTimelineEntry]()
                 for i in 0 ..< loops {
-                    let date2 = date.addingTimeInterval(TimeInterval(i * (5*60)))
+                    let date2 = date.addingTimeInterval(TimeInterval(i * (60)))
                     let template = CLKComplicationTemplateModularSmallStackText()
                     template.line1TextProvider = CLKSimpleTextProvider(text: "\(controller.getAgoComplication(date: date2))")
                     template.line2TextProvider = CLKSimpleTextProvider(text: "\(controller.getDoseComplication())")

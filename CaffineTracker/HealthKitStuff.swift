@@ -115,6 +115,7 @@ class HealthKitStuff {
                 print("Error saving: \(error!)")
                 completion(error)
             }
+            completion(nil)
         }
     }
 }
