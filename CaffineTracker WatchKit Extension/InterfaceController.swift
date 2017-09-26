@@ -127,6 +127,7 @@ class InterfaceController: WKInterfaceController {
             self.draw()
             
             if let update = self.update {
+                print("calling update")
                 update()
             }
             
@@ -138,12 +139,19 @@ class InterfaceController: WKInterfaceController {
         self.update = update
     }
     
+    func hideText() {
+        lastDoseLabel.setText("")
+        totalDoseLabel.setText("")
+    }
+
+    
     @IBAction func fetch() {
+        hideText()
         refresh()
     }
     
-    
     @IBAction func logDose() {
+        hideText()
         HealthKitStuff.logDose(dose: 100) { (error) in
             if let error = error {
                 self.error_message(error.localizedDescription)
