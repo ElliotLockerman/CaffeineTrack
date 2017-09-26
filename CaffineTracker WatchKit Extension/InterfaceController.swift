@@ -6,16 +6,16 @@
 //  Copyright © 2017 el. All rights reserved.
 //
 
+
 import WatchKit
 import Foundation
-
 
 class InterfaceController: WKInterfaceController {
 
     @IBOutlet var lastDoseLabel: WKInterfaceLabel!
     @IBOutlet var totalDoseLabel: WKInterfaceLabel!
     
-    var ago = 0;
+    var lastDoseTime = Date();
     var totalDose = 0;
     
     override func awake(withContext context: Any?) {
@@ -66,38 +66,59 @@ class InterfaceController: WKInterfaceController {
     }
     
     func draw() {
-        self.totalDoseLabel.setText(String(totalDose) + " mg")
-
-        let hours = ago / 60;
-        let minutes = ago % 60;
-        self.lastDoseLabel.setText(String(hours) + "h " + String(minutes) + "m ago")
+        self.lastDoseLabel.setText(getAgo())
+        self.totalDoseLabel.setText(getDose())
+    }
+    
+    func getDose() -> String {
+        if totalDose == 0 {
+            return "--- mg"
+        } else {
+            return String(totalDose) + " mg"
+        }
+    }
+    
+    func getDoseComplication() -> String {
+        if totalDose == 0 {
+            return "--- mg"
+        } else {
+            return String(totalDose)
+        }
+    }
+    
+    func getAgo() -> String {
+        if totalDose == 0 {
+            return "--h --m ago"
+        } else {
+            let total_minutes = Int(Date().timeIntervalSince(lastDoseTime) / 60)
+            let hours = total_minutes / 60;
+            let minutes = total_minutes % 60;
+            return String(hours) + "h " + String(minutes) + "m ago"
+        }
+    }
+    
+    func getAgoComplication() -> String {
+        if totalDose == 0 {
+            return "--:--"
+        } else {
+            let total_minutes = Int(Date().timeIntervalSince(lastDoseTime) / 60)
+            let hours = total_minutes / 60;
+            let minutes = total_minutes % 60;
+            return String(hours) + ":" + String(minutes)
+        }
     }
     
     func refresh() {
-        HealthKitStuff.getCaffData() { (dose, ago) in
+        HealthKitStuff.getCaffData() { (dose, time) in
             self.totalDose = dose
-            self.ago = ago
+            self.lastDoseTime = time
         }
+        
         draw()
     }
     
     
     @IBAction func fetch() {
-        /*
-        HealthKitStuff.authorizeHealthKit { (authorized, error) in
-            if authorized {
-                print("Authorization succeeded")
-            }else {
-                let baseMessage = "HealthKit Authorization Failed"
-                if let error = error {
-                    print("\(baseMessage). Reason: \(error.localizedDescription)")
-                } else {
-                    print(baseMessage)
-                }
-                return
-            }
-        }
-         */
         refresh()
     }
     

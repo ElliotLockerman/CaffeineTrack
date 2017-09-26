@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet var lastDoseLabel: UILabel!
     @IBOutlet var totalDoseLabel: UILabel!
     
-    var ago = 0;
+    var lastDoseTime = Date()
     var totalDose = 0;
     
     override func viewDidLoad() {
@@ -46,17 +46,23 @@ class ViewController: UIViewController {
     }
     
     func draw() {
-        self.totalDoseLabel.text = String(totalDose) + " mg"
-        
-        let hours = ago / 60;
-        let minutes = ago % 60;
-        self.lastDoseLabel.text = String(hours) + "h " + String(minutes) + "m ago"
+        if (totalDose == 0) {
+            self.totalDoseLabel.text = "--- mg"
+            self.lastDoseLabel.text = "--h --m ago"
+        } else {
+            self.totalDoseLabel.text = String(totalDose) + " mg"
+            
+            let total_minutes = Int(Date().timeIntervalSince(lastDoseTime) / 60)
+            let hours = total_minutes / 60;
+            let minutes = total_minutes % 60;
+            self.lastDoseLabel.text = String(hours) + "h " + String(minutes) + "m ago"
+        }
     }
     
     func refresh() {
-        HealthKitStuff.getCaffData() { (dose, ago) in
-            self.ago = ago
+        HealthKitStuff.getCaffData() { (dose, time) in
             self.totalDose = dose
+            self.lastDoseTime = time
             self.draw()
         }
     }

@@ -35,7 +35,7 @@ class HealthKitStuff {
                                                 completion(success, error)}
     }
     
-    class func getCaffData(completion: @escaping(Int, Int) -> Swift.Void) {
+    class func getCaffData(completion: @escaping(Int, Date) -> Swift.Void) {
         guard let caffType = HKObjectType.quantityType(forIdentifier: .dietaryCaffeine) else {
             print("Caffine not available")
             return
@@ -71,8 +71,7 @@ class HealthKitStuff {
                 
                 let mostRecentSample = samples.first
                 let start = mostRecentSample?.startDate ?? Date()
-                let total_minutes = Int(Date().timeIntervalSince(start) / 60)
-                completion(Int(total), total_minutes)
+                completion(Int(total), start)
                 
             }
             

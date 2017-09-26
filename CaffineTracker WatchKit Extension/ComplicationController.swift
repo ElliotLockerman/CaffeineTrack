@@ -7,10 +7,20 @@
 //
 
 import ClockKit
-
+import WatchKit
 
 class ComplicationController: NSObject, CLKComplicationDataSource {
     
+    /*
+    class func draw() {
+        let complicationServer = CLKComplicationServer.sharedInstance()
+        if let complications = complicationServer.activeComplications {
+            for complication in complications {
+                complicationServer.reloadTimeline(for: complication)
+            }
+        }
+    }
+    */
     // MARK: - Timeline Configuration
     
     func getSupportedTimeTravelDirections(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimeTravelDirections) -> Void) {
@@ -33,7 +43,19 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
         // Call the handler with the current timeline entry
-        handler(nil)
+        if complication.family == .modularSmall {
+            if let controller = WKExtension.shared().rootInterfaceController as? InterfaceController {
+                let template = CLKComplicationTemplateModularSmallStackText()
+                template.line1TextProvider = CLKSimpleTextProvider(text: "\(controller.getAgoComplication())")
+                template.line2TextProvider = CLKSimpleTextProvider(text: "\(controller.getDoseComplication())")
+                
+                let timelineEntry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
+                handler(timelineEntry)
+            }
+            handler(nil)
+        } else {
+            handler(nil)
+        }
     }
     
     func getTimelineEntries(for complication: CLKComplication, before date: Date, limit: Int, withHandler handler: @escaping ([CLKComplicationTimelineEntry]?) -> Void) {
@@ -46,7 +68,6 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         handler(nil)
     }
     
-    // MARK: - Placeholder Templates
     
     func getLocalizableSampleTemplate(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTemplate?) -> Void) {
         // This method will be called once per supported complication, and the results will be cached
