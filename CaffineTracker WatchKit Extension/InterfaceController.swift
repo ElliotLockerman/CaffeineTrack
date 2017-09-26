@@ -6,9 +6,9 @@
 //  Copyright © 2017 el. All rights reserved.
 //
 
-
-import WatchKit
 import Foundation
+import WatchKit
+import ClockKit
 
 class InterfaceController: WKInterfaceController {
 
@@ -18,14 +18,15 @@ class InterfaceController: WKInterfaceController {
     
     var lastDoseTime = Date();
     var totalDose = 0;
-    var update: (() -> ())?
+    
+
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         // Configure interface objects here.
         
         HealthKitStuff.authorizeHealthKit { (authorized, error) in
-            print("Authorization callback")
+            print(" callback")
             guard authorized else {
                 let baseMessage = "HealthKit Authorization Failed"
                 if let error = error {
@@ -45,9 +46,7 @@ class InterfaceController: WKInterfaceController {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
         HealthKitStuff.authorizeHealthKit { (authorized, error) in
-            if authorized {
-                print("Authorization succeeded")
-            }else {
+            guard authorized else {
                 let baseMessage = "HealthKit Authorization Failed"
                 if let error = error {
                     print("\(baseMessage). Reason: \(error.localizedDescription)")
@@ -126,24 +125,25 @@ class InterfaceController: WKInterfaceController {
             
             self.draw()
             
-            if let update = self.update {
-                print("calling update")
-                update()
-            }
+            self.updateComplication()
             
         }
 
     }
-    
-    func registerUpdate(update: @escaping()->()) {
-        self.update = update
-    }
+
     
     func hideText() {
         lastDoseLabel.setText("")
         totalDoseLabel.setText("")
     }
-
+    func updateComplication() {
+        let complicationServer = CLKComplicationServer.sharedInstance()
+        if let complications = complicationServer.activeComplications {
+            for complication in complications {
+                complicationServer.reloadTimeline(for: complication)
+            }
+        }
+    }
     
     @IBAction func fetch() {
         hideText()

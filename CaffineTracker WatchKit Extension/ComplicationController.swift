@@ -11,27 +11,19 @@ import WatchKit
 
 class ComplicationController: NSObject, CLKComplicationDataSource {
     
-    
 
     // MARK: - Timeline Configuration
     
+
+    
     func getSupportedTimeTravelDirections(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimeTravelDirections) -> Void) {
-        handler([.forward, .backward])
+        handler([.forward])
     }
     
     func getTimelineStartDate(for complication: CLKComplication, withHandler handler: @escaping (Date?) -> Void) {
         if let controller = WKExtension.shared().rootInterfaceController as? InterfaceController {
             handler(controller.getLastDate())
-            controller.registerUpdate {
-                let complicationServer = CLKComplicationServer.sharedInstance()
-                if let complications = complicationServer.activeComplications {
-                    for complication in complications {
-                        complicationServer.reloadTimeline(for: complication)
-                    }
-                }
-            }
-        }
-            
+        }    
     }
     
     func getTimelineEndDate(for complication: CLKComplication, withHandler handler: @escaping (Date?) -> Void) {

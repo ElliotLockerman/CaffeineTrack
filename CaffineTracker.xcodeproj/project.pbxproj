@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		65956C1A1F79BE3D005C2610 /* HealthKitStuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65956C191F79BE3D005C2610 /* HealthKitStuff.swift */; };
-		65956C1B1F79C030005C2610 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AE2AE91F79BDDF009946A7 /* InterfaceController.swift */; };
 		65956C1C1F79C034005C2610 /* HealthKitStuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65956C191F79BE3D005C2610 /* HealthKitStuff.swift */; };
 		65956C1D1F79C731005C2610 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AE2AE91F79BDDF009946A7 /* InterfaceController.swift */; };
 		65956C201F79C7B7005C2610 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65956C1F1F79C7B7005C2610 /* HealthKit.framework */; };
@@ -330,7 +329,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				65956C1A1F79BE3D005C2610 /* HealthKitStuff.swift in Sources */,
-				65956C1B1F79C030005C2610 /* InterfaceController.swift in Sources */,
 				65AE2AC91F79BDDE009946A7 /* ViewController.swift in Sources */,
 				65AE2AC71F79BDDE009946A7 /* AppDelegate.swift in Sources */,
 			);
