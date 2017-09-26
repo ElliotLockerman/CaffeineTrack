@@ -13,7 +13,6 @@
 		65956C1D1F79C731005C2610 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AE2AE91F79BDDF009946A7 /* InterfaceController.swift */; };
 		65956C201F79C7B7005C2610 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65956C1F1F79C7B7005C2610 /* HealthKit.framework */; };
 		65956C231F79CF2A005C2610 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65AE2AF11F79BDDF009946A7 /* Info.plist */; };
-		65956C251F79D49B005C2610 /* ComplicationSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65956C241F79D49B005C2610 /* ComplicationSource.swift */; };
 		65AE2AC71F79BDDE009946A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AE2AC61F79BDDE009946A7 /* AppDelegate.swift */; };
 		65AE2AC91F79BDDE009946A7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AE2AC81F79BDDE009946A7 /* ViewController.swift */; };
 		65AE2ACC1F79BDDE009946A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65AE2ACA1F79BDDE009946A7 /* Main.storyboard */; };
@@ -75,7 +74,6 @@
 		65956C191F79BE3D005C2610 /* HealthKitStuff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitStuff.swift; sourceTree = "<group>"; };
 		65956C1E1F79C7B7005C2610 /* CaffineTracker WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "CaffineTracker WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		65956C1F1F79C7B7005C2610 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS4.0.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
-		65956C241F79D49B005C2610 /* ComplicationSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationSource.swift; sourceTree = "<group>"; };
 		65AE2AC31F79BDDE009946A7 /* CaffineTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CaffineTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65AE2AC61F79BDDE009946A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65AE2AC81F79BDDE009946A7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -168,7 +166,6 @@
 			children = (
 				65956C1E1F79C7B7005C2610 /* CaffineTracker WatchKit Extension.entitlements */,
 				65AE2AE91F79BDDF009946A7 /* InterfaceController.swift */,
-				65956C241F79D49B005C2610 /* ComplicationSource.swift */,
 				65AE2AEB1F79BDDF009946A7 /* ExtensionDelegate.swift */,
 				65AE2AED1F79BDDF009946A7 /* ComplicationController.swift */,
 				65AE2AEF1F79BDDF009946A7 /* Assets.xcassets */,
@@ -343,7 +340,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65956C251F79D49B005C2610 /* ComplicationSource.swift in Sources */,
 				65956C1C1F79C034005C2610 /* HealthKitStuff.swift in Sources */,
 				65956C1D1F79C731005C2610 /* InterfaceController.swift in Sources */,
 				65AE2AEC1F79BDDF009946A7 /* ExtensionDelegate.swift in Sources */,

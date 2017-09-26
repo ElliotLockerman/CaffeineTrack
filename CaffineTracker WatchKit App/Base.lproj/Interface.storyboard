@@ -14,8 +14,12 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="CaffineTracker_WatchKit_App" customModuleProvider="target">
                     <items>
-                        <label alignment="left" text="--h --m ago" id="Lsi-t1-2Yr"/>
-                        <label alignment="left" text="--- mg today" id="S8q-j6-ER5"/>
+                        <label alignment="left" text="--h --m ago" textAlignment="justified" id="Lsi-t1-2Yr">
+                            <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                        </label>
+                        <label alignment="left" text="--- mg today" textAlignment="justified" id="S8q-j6-ER5">
+                            <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                        </label>
                         <button width="1" height="42" alignment="left" verticalAlignment="bottom" title="Log Dose (100mg)" id="P5K-nq-Ya0">
                             <connections>
                                 <action selector="logDose" destination="AgC-eL-Hgc" id="dmw-LJ-Pv8"/>

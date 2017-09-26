@@ -66,7 +66,7 @@ class InterfaceController: WKInterfaceController {
     }
     
     func draw() {
-        self.lastDoseLabel.setText(getAgo())
+        self.lastDoseLabel.setText(getAgo(date: Date()))
         self.totalDoseLabel.setText(getDose())
     }
     
@@ -86,26 +86,30 @@ class InterfaceController: WKInterfaceController {
         }
     }
     
-    func getAgo() -> String {
+    func getAgo(date: Date) -> String {
         if totalDose == 0 {
             return "--h --m ago"
         } else {
-            let total_minutes = Int(Date().timeIntervalSince(lastDoseTime) / 60)
+            let total_minutes = Int(date.timeIntervalSince(lastDoseTime) / 60)
             let hours = total_minutes / 60;
             let minutes = total_minutes % 60;
             return String(hours) + "h " + String(minutes) + "m ago"
         }
     }
     
-    func getAgoComplication() -> String {
+    func getAgoComplication(date: Date) -> String {
         if totalDose == 0 {
             return "--:--"
         } else {
-            let total_minutes = Int(Date().timeIntervalSince(lastDoseTime) / 60)
+            let total_minutes = Int(date.timeIntervalSince(lastDoseTime) / 60)
             let hours = total_minutes / 60;
             let minutes = total_minutes % 60;
             return String(hours) + ":" + String(minutes)
         }
+    }
+    
+    func getLastDate() -> Date {
+        return lastDoseTime
     }
     
     func refresh() {
