@@ -15,6 +15,7 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet var lastDoseLabel: WKInterfaceLabel!
     @IBOutlet var totalDoseLabel: WKInterfaceLabel!
     
+    
     var lastDoseTime = Date();
     var totalDose = 0;
     var update: (() -> ())?
@@ -128,6 +129,7 @@ class InterfaceController: WKInterfaceController {
             if let update = self.update {
                 update()
             }
+            
         }
 
     }

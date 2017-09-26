@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     
     @IBOutlet var lastDoseLabel: UILabel!
     @IBOutlet var totalDoseLabel: UILabel!
+    @IBOutlet var spinner: UIActivityIndicatorView!
     
     var lastDoseTime = Date()
     var totalDose = 0;
@@ -57,6 +58,13 @@ class ViewController: UIViewController {
     }
     
     func refresh() {
+//        let spinner = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+//        spinner.center = self.view.center
+        spinner.startAnimating()
+        spinner.isHidden = false
+        lastDoseLabel.isHidden = true
+        totalDoseLabel.isHidden = true
+        
         HealthKitStuff.getCaffData() { (dose, time, error) in
             if let error = error {
                 self.error_message(error.localizedDescription)
@@ -65,6 +73,12 @@ class ViewController: UIViewController {
             self.totalDose = dose
             self.lastDoseTime = time
             self.draw()
+            
+            self.spinner.isHidden = true
+            self.spinner.stopAnimating()
+            
+            self.lastDoseLabel.isHidden = false
+            self.totalDoseLabel.isHidden = false
         }
     }
     
