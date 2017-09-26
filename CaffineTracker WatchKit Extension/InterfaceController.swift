@@ -17,6 +17,7 @@ class InterfaceController: WKInterfaceController {
     
     var lastDoseTime = Date();
     var totalDose = 0;
+    var update: (() -> ())?
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
@@ -104,7 +105,7 @@ class InterfaceController: WKInterfaceController {
             let total_minutes = Int(date.timeIntervalSince(lastDoseTime) / 60)
             let hours = total_minutes / 60;
             let minutes = total_minutes % 60;
-            return String(hours) + ":" + String(minutes)
+            return String(hours) + ":" + String(format: "%02d", minutes)
         }
     }
     
@@ -113,14 +114,27 @@ class InterfaceController: WKInterfaceController {
     }
     
     func refresh() {
-        HealthKitStuff.getCaffData() { (dose, time) in
+        HealthKitStuff.getCaffData() { (dose, time, error) in
+            if let error = error {
+                self.error_message(error.localizedDescription)
+                return
+            }
+            
             self.totalDose = dose
             self.lastDoseTime = time
+            
+            self.draw()
+            
+            if let update = self.update {
+                update()
+            }
         }
-        
-        draw()
+
     }
     
+    func registerUpdate(update: @escaping()->()) {
+        self.update = update
+    }
     
     @IBAction func fetch() {
         refresh()
@@ -128,10 +142,17 @@ class InterfaceController: WKInterfaceController {
     
     
     @IBAction func logDose() {
-        HealthKitStuff.logDose(dose: 100)
-        refresh()
+        HealthKitStuff.logDose(dose: 100) { (error) in
+            if let error = error {
+                self.error_message(error.localizedDescription)
+            }
+            self.refresh()
+        }
     }
     
+    func error_message(_ msg: String) {
+//        presentAlert(withTitle: "Error", message: msg, preferredStyle: .alert, actions: [])
+    }
     
 }
 

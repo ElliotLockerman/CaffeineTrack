@@ -27,22 +27,19 @@ class ViewController: UIViewController {
         HealthKitStuff.authorizeHealthKit { (authorized, error) in
             
             guard authorized else {
-                
                 let baseMessage = "HealthKit Authorization Failed"
-                
                 if let error = error {
                     print("\(baseMessage). Reason: \(error.localizedDescription)")
-                    self.message(msg: baseMessage)
+                    self.error_message(error.localizedDescription)
                 } else {
                     print(baseMessage)
                 }
                 
                 return
             }
+            
+            self.refresh()
         }
-        
-        refresh()
-
     }
     
     func draw() {
@@ -60,7 +57,11 @@ class ViewController: UIViewController {
     }
     
     func refresh() {
-        HealthKitStuff.getCaffData() { (dose, time) in
+        HealthKitStuff.getCaffData() { (dose, time, error) in
+            if let error = error {
+                self.error_message(error.localizedDescription)
+                return;
+            }
             self.totalDose = dose
             self.lastDoseTime = time
             self.draw()
@@ -73,11 +74,15 @@ class ViewController: UIViewController {
     
 
     @IBAction func logDose(_ sender: Any) {
-        HealthKitStuff.logDose(dose: 100)
-        refresh()
+        HealthKitStuff.logDose(dose: 100) { (error) in
+            if let error = error {
+                self.error_message(error.localizedDescription)
+            }
+            self.refresh()
+        }
     }
     
-    func message(msg: String) {
+    func error_message(_ msg: String) {
         let alert = UIAlertController(title: "Alert", message: msg, preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)

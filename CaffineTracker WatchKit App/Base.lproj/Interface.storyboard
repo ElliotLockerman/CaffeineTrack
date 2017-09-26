@@ -22,15 +22,15 @@
                         </label>
                         <button width="1" height="42" alignment="left" verticalAlignment="bottom" title="Log Dose (100mg)" id="P5K-nq-Ya0">
                             <connections>
-                                <action selector="logDose" destination="AgC-eL-Hgc" id="dmw-LJ-Pv8"/>
+                                <action selector="logDose" destination="AgC-eL-Hgc" id="Lch-QG-XKl"/>
                             </connections>
                         </button>
                     </items>
-                    <menu key="menu" id="L3p-5c-1aD">
+                    <menu key="menu" id="GDo-Kp-bNa">
                         <items>
-                            <menuItem title="Refresh" icon="repeat" id="Ttb-bw-Xeq">
+                            <menuItem title="Refresh" icon="repeat" id="CEx-Oq-iDi">
                                 <connections>
-                                    <action selector="fetch" destination="AgC-eL-Hgc" id="tQv-6s-DnU"/>
+                                    <action selector="fetch" destination="AgC-eL-Hgc" id="QKM-0M-NMZ"/>
                                 </connections>
                             </menuItem>
                         </items>

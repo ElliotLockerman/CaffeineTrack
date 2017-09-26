@@ -8,21 +8,40 @@
 
 import HealthKit
 
-class HealthKitStuff {
-    
-    private enum HealthKitSetupError: Error {
-        case notAvailableOnDevice
-        case dataTypeNotAvailable
+enum HealthKitError: Error {
+    case notAvailableOnDevice
+    case dataTypeNotAvailable
+    case errorRetrievingSample
+}
+
+
+
+
+extension HealthKitError: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .notAvailableOnDevice:
+            return NSLocalizedString("HealthKit not available on this device.", comment: "Error")
+        case .dataTypeNotAvailable:
+            return NSLocalizedString("Caffine data not available.", comment: "Error")
+        case .errorRetrievingSample:
+            return NSLocalizedString("Error Retrieving Sample.", comment: "Error")
+        }
     }
+}
+
+
+
+class HealthKitStuff {
     
     class func authorizeHealthKit(completion: @escaping(Bool, Error?) -> Swift.Void) {
         guard HKHealthStore.isHealthDataAvailable() else {
-            completion(false, HealthKitSetupError.notAvailableOnDevice)
+            completion(false, HealthKitError.notAvailableOnDevice)
             return
         }
         
         guard   let caffType = HKObjectType.quantityType(forIdentifier: .dietaryCaffeine) else {
-            completion(false, HealthKitSetupError.dataTypeNotAvailable)
+            completion(false, HealthKitError.dataTypeNotAvailable)
             return
         }
         
@@ -35,9 +54,9 @@ class HealthKitStuff {
                                                 completion(success, error)}
     }
     
-    class func getCaffData(completion: @escaping(Int, Date) -> Swift.Void) {
+    class func getCaffData(completion: @escaping(Int, Date, Error?) -> Swift.Void) {
         guard let caffType = HKObjectType.quantityType(forIdentifier: .dietaryCaffeine) else {
-            print("Caffine not available")
+            completion(0, Date(), HealthKitError.dataTypeNotAvailable)
             return
         }
         
@@ -55,11 +74,12 @@ class HealthKitStuff {
             DispatchQueue.main.async {
                 if error != nil {
                     print("Couldn't get samples \(error!)")
+                    completion(0, Date(), error)
                     return
                 }
                 
                 guard let samples = samples as? [HKQuantitySample] else {
-                    print("Error: Couldn't unwrap and cast samples")
+                    completion(0, Date(), HealthKitError.errorRetrievingSample)
                     return;
                 }
                 
@@ -71,7 +91,7 @@ class HealthKitStuff {
                 
                 let mostRecentSample = samples.first
                 let start = mostRecentSample?.startDate ?? Date()
-                completion(Int(total), start)
+                completion(Int(total), start, nil)
                 
             }
             
@@ -79,9 +99,10 @@ class HealthKitStuff {
         HKHealthStore().execute(sampleQuery)
     }
     
-    class func logDose(dose: Double) {
+    class func logDose(dose: Double, completion: @escaping((Error?) -> ())) {
         guard let caffType = HKObjectType.quantityType(forIdentifier: .dietaryCaffeine) else {
             print("Caffine not available")
+            completion(HealthKitError.dataTypeNotAvailable)
             return
         }
         
@@ -92,8 +113,10 @@ class HealthKitStuff {
         HKHealthStore().save(caffSample) { (success, error) in
             if error != nil {
                 print("Error saving: \(error!)")
+                completion(error)
             }
         }
     }
 }
+
 

@@ -11,16 +11,8 @@ import WatchKit
 
 class ComplicationController: NSObject, CLKComplicationDataSource {
     
-    /*
-    class func draw() {
-        let complicationServer = CLKComplicationServer.sharedInstance()
-        if let complications = complicationServer.activeComplications {
-            for complication in complications {
-                complicationServer.reloadTimeline(for: complication)
-            }
-        }
-    }
-    */
+    
+
     // MARK: - Timeline Configuration
     
     func getSupportedTimeTravelDirections(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimeTravelDirections) -> Void) {
@@ -30,6 +22,14 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     func getTimelineStartDate(for complication: CLKComplication, withHandler handler: @escaping (Date?) -> Void) {
         if let controller = WKExtension.shared().rootInterfaceController as? InterfaceController {
             handler(controller.getLastDate())
+            controller.registerUpdate {
+                let complicationServer = CLKComplicationServer.sharedInstance()
+                if let complications = complicationServer.activeComplications {
+                    for complication in complications {
+                        complicationServer.reloadTimeline(for: complication)
+                    }
+                }
+            }
         }
             
     }
@@ -92,6 +92,15 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     func getLocalizableSampleTemplate(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTemplate?) -> Void) {
         // This method will be called once per supported complication, and the results will be cached
+        // Call the handler with the current timeline entry
+        if complication.family == .modularSmall {
+            let template = CLKComplicationTemplateModularSmallStackText()
+            template.line1TextProvider = CLKSimpleTextProvider(text: "--:--")
+            template.line2TextProvider = CLKSimpleTextProvider(text: "000")
+            
+            handler(template)
+            return;
+        }
         handler(nil)
     }
     
