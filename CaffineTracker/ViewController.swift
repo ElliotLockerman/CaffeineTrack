@@ -15,7 +15,6 @@ class ViewController: UIViewController {
     
     @IBOutlet var lastDoseLabel: UILabel!
     @IBOutlet var totalDoseLabel: UILabel!
-    @IBOutlet var spinner: UIActivityIndicatorView!
     
     var lastDoseTime = Date()
     var totalDose = 0;
