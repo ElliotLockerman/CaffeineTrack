@@ -67,8 +67,10 @@ class InterfaceController: WKInterfaceController {
     }
     
     func draw() {
-        self.lastDoseLabel.setText(getAgo(date: Date()))
-        self.totalDoseLabel.setText(getDose())
+        DispatchQueue.main.async(execute: {
+            self.lastDoseLabel.setText(self.getAgo(date: Date()))
+            self.totalDoseLabel.setText(self.getDose())
+        })
     }
     
     func getDose() -> String {
@@ -133,8 +135,10 @@ class InterfaceController: WKInterfaceController {
 
     
     func hideText() {
-        lastDoseLabel.setText("")
-        totalDoseLabel.setText("")
+        DispatchQueue.main.async(execute: {
+            self.lastDoseLabel.setText("")
+            self.totalDoseLabel.setText("")
+        })
     }
     func updateComplication() {
         let complicationServer = CLKComplicationServer.sharedInstance()

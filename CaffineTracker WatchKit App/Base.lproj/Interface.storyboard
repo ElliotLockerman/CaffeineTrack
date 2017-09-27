@@ -8,17 +8,23 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13051"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="ArialHB.ttc">
+            <string>ArialHebrew-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--Interface Controller-->
+        <!--CaffineTracker-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="CaffineTracker_WatchKit_App" customModuleProvider="target">
+                <controller title="CaffineTracker" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="CaffineTracker_WatchKit_App" customModuleProvider="target">
                     <items>
-                        <label alignment="left" text="--h --m ago" textAlignment="justified" id="Lsi-t1-2Yr">
-                            <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                        <group width="1" height="21" alignment="left" id="BYG-jo-8uQ"/>
+                        <label height="32" alignment="left" text="--h --m ago" textAlignment="justified" id="Lsi-t1-2Yr">
+                            <fontDescription key="font" name="ArialHebrew-Bold" family="Arial Hebrew" pointSize="24"/>
                         </label>
-                        <label alignment="left" text="--- mg today" textAlignment="justified" id="S8q-j6-ER5">
-                            <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                        <label alignment="left" text="--- mg total" textAlignment="justified" id="S8q-j6-ER5">
+                            <fontDescription key="font" name="ArialHebrew-Bold" family="Arial Hebrew" pointSize="20"/>
                         </label>
                         <button width="1" height="42" alignment="left" verticalAlignment="bottom" title="Log Dose (100mg)" id="P5K-nq-Ya0">
                             <connections>
@@ -41,7 +47,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="161" y="86"/>
+            <point key="canvasLocation" x="159.53846153846155" y="85.871794871794876"/>
         </scene>
     </scenes>
 </document>

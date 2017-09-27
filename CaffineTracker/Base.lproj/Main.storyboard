@@ -59,9 +59,6 @@
                                     <constraint firstAttribute="height" constant="90" id="kmK-9P-qvP"/>
                                 </constraints>
                             </view>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ym9-OQ-9jW">
-                                <rect key="frame" x="91" y="147" width="20" height="20"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -73,8 +70,6 @@
                             <constraint firstItem="j5i-ih-yk4" firstAttribute="leading" secondItem="aaa-AE-khq" secondAttribute="leading" id="9yF-08-uyN"/>
                             <constraint firstItem="kOa-KB-4Zv" firstAttribute="trailing" secondItem="Uee-0j-aNJ" secondAttribute="trailing" id="Atm-nv-HSs"/>
                             <constraint firstItem="j5i-ih-yk4" firstAttribute="top" secondItem="mqb-Mq-zOD" secondAttribute="bottom" constant="15.5" id="GdF-9v-KJ8"/>
-                            <constraint firstItem="ym9-OQ-9jW" firstAttribute="leading" secondItem="Uee-0j-aNJ" secondAttribute="leading" constant="91" id="HEy-AA-1fi"/>
-                            <constraint firstItem="ym9-OQ-9jW" firstAttribute="top" secondItem="kOa-KB-4Zv" secondAttribute="bottom" constant="57" id="Qee-En-0Ex"/>
                             <constraint firstItem="Uee-0j-aNJ" firstAttribute="bottom" secondItem="IYq-zj-YTe" secondAttribute="bottom" constant="70" id="Xna-KG-hpn"/>
                             <constraint firstItem="aaa-AE-khq" firstAttribute="leading" secondItem="Uee-0j-aNJ" secondAttribute="leading" constant="50" id="co5-Ih-Qa2"/>
                             <constraint firstItem="mqb-Mq-zOD" firstAttribute="top" secondItem="aaa-AE-khq" secondAttribute="bottom" constant="17.5" id="fAT-iy-q1d"/>
@@ -86,7 +81,6 @@
                     </view>
                     <connections>
                         <outlet property="lastDoseLabel" destination="aaa-AE-khq" id="jAM-Tg-vFw"/>
-                        <outlet property="spinner" destination="ym9-OQ-9jW" id="33x-xV-e2h"/>
                         <outlet property="totalDoseLabel" destination="mqb-Mq-zOD" id="hM5-tE-hg5"/>
                     </connections>
                 </viewController>

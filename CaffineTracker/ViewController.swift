@@ -58,7 +58,7 @@ class ViewController: UIViewController {
     }
     
     func refresh() {
-        showSpinner();
+        hideText();
         HealthKitStuff.getCaffData() { (dose, time, error) in
             if let error = error {
                 self.error_message(error.localizedDescription)
@@ -68,23 +68,22 @@ class ViewController: UIViewController {
             self.lastDoseTime = time
             self.draw()
 
-            self.hideSpinner()
+            self.showText()
         }
     }
     
-    func showSpinner() {
-        spinner.startAnimating()
-        spinner.isHidden = false
-        lastDoseLabel.isHidden = true
-        totalDoseLabel.isHidden = true
+    func hideText() {
+        DispatchQueue.main.async(execute: {
+            self.lastDoseLabel.isHidden = true
+            self.totalDoseLabel.isHidden = true
+        })
     }
     
-    func hideSpinner() {
-        self.spinner.isHidden = true
-        self.spinner.stopAnimating()
-        
-        self.lastDoseLabel.isHidden = false
-        self.totalDoseLabel.isHidden = false
+    func showText() {
+        DispatchQueue.main.async(execute: {
+            self.lastDoseLabel.isHidden = false
+            self.totalDoseLabel.isHidden = false
+        })
     }
     
     @IBAction func fetch(_ sender: Any) {
@@ -93,7 +92,7 @@ class ViewController: UIViewController {
     
 
     @IBAction func logDose(_ sender: Any) {
-        showSpinner()
+        hideText()
         HealthKitStuff.logDose(dose: 100) { (error) in
             if let error = error {
                 self.error_message(error.localizedDescription)

@@ -20,8 +20,12 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSHealthShareUsageDescription</key>
+	<string>Heath access is required for caffine usage</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>Heath access is required for caffine usage</string>
 	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
+	<string>Main</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -41,9 +45,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSHealthShareUsageDescription</key>
-	<string>Heath access is required for caffine usage</string>
-	<key>NSHealthUpdateUsageDescription</key>
-	<string>Heath access is required for caffine usage</string>
 </dict>
 </plist>
