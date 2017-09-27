@@ -42,6 +42,10 @@ class ViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        refresh()
+    }
+    
     func draw() {
         if (totalDose == 0) {
             self.totalDoseLabel.text = "--- mg"

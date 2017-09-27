@@ -42,23 +42,12 @@ class InterfaceController: WKInterfaceController {
         
     }
     
+
+    
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
-        HealthKitStuff.authorizeHealthKit { (authorized, error) in
-            guard authorized else {
-                let baseMessage = "HealthKit Authorization Failed"
-                if let error = error {
-                    print("\(baseMessage). Reason: \(error.localizedDescription)")
-                } else {
-                    print(baseMessage)
-                }
-                return
-            }
-            
-            self.refresh()
-        }
-        
+        self.refresh()
     }
     
     override func didDeactivate() {
@@ -83,7 +72,7 @@ class InterfaceController: WKInterfaceController {
     
     func getDoseComplication() -> String {
         if totalDose == 0 {
-            return "--- mg"
+            return "---"
         } else {
             return String(totalDose)
         }
@@ -116,6 +105,7 @@ class InterfaceController: WKInterfaceController {
     }
     
     func refresh() {
+        hideText()
         HealthKitStuff.getCaffData() { (dose, time, error) in
             if let error = error {
                 self.error_message(error.localizedDescription)
@@ -150,7 +140,6 @@ class InterfaceController: WKInterfaceController {
     }
     
     @IBAction func fetch() {
-        hideText()
         refresh()
     }
     
@@ -165,7 +154,8 @@ class InterfaceController: WKInterfaceController {
     }
     
     func error_message(_ msg: String) {
-//        presentAlert(withTitle: "Error", message: msg, preferredStyle: .alert, actions: [])
+        let action = WKAlertAction(title: "Ok", style: WKAlertActionStyle.default, handler: { () -> Void in  })
+        presentAlert(withTitle: "Error", message: msg, preferredStyle: .alert, actions: [action])
     }
     
 }
