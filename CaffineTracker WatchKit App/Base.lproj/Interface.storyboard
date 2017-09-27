@@ -8,11 +8,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13051"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="ArialHB.ttc">
-            <string>ArialHebrew-Bold</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--CaffineTracker-->
         <scene sceneID="aou-V4-d1y">
@@ -21,10 +16,10 @@
                     <items>
                         <group width="1" height="21" alignment="left" id="BYG-jo-8uQ"/>
                         <label height="32" alignment="left" text="--h --m ago" textAlignment="justified" id="Lsi-t1-2Yr">
-                            <fontDescription key="font" name="ArialHebrew-Bold" family="Arial Hebrew" pointSize="24"/>
+                            <fontDescription key="font" type="system" weight="semibold" pointSize="24"/>
                         </label>
                         <label alignment="left" text="--- mg total" textAlignment="justified" id="S8q-j6-ER5">
-                            <fontDescription key="font" name="ArialHebrew-Bold" family="Arial Hebrew" pointSize="20"/>
+                            <fontDescription key="font" type="system" pointSize="20"/>
                         </label>
                         <button width="1" height="42" alignment="left" verticalAlignment="bottom" title="Log Dose (100mg)" id="P5K-nq-Ya0">
                             <connections>
