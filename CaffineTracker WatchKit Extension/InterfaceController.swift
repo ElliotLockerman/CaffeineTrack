@@ -39,7 +39,7 @@ class InterfaceController: WKInterfaceController {
             
             self.refresh()
         }
-        
+//        scheduleRefresh()
     }
     
 
@@ -64,7 +64,7 @@ class InterfaceController: WKInterfaceController {
     
     func getDose() -> String {
         if totalDose == 0 {
-            return "--- mg"
+            return "0 mg"
         } else {
             return String(totalDose) + " mg"
         }
@@ -72,7 +72,7 @@ class InterfaceController: WKInterfaceController {
     
     func getDoseComplication() -> String {
         if totalDose == 0 {
-            return "---"
+            return "0"
         } else {
             return String(totalDose)
         }
@@ -158,5 +158,15 @@ class InterfaceController: WKInterfaceController {
         presentAlert(withTitle: "Error", message: msg, preferredStyle: .alert, actions: [action])
     }
     
+    func scheduleRefresh() {
+        WKExtension.shared().scheduleBackgroundRefresh(withPreferredDate: Date().addingTimeInterval(TimeInterval(60 * 60)), userInfo: nil) { (error) in
+            if let _ = error {
+                // TODO: Should log this somehow
+                return;
+            }
+            self.refresh()
+            self.scheduleRefresh()
+        }
+    }
 }
 

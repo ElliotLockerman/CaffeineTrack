@@ -37,18 +37,16 @@ class ViewController: UIViewController {
                 
                 return
             }
-            
             self.refresh()
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        refresh()
     }
     
     func draw() {
         if (totalDose == 0) {
-            self.totalDoseLabel.text = "--- mg"
+            self.totalDoseLabel.text = "0 mg"
             self.lastDoseLabel.text = "--h --m ago"
         } else {
             self.totalDoseLabel.text = String(totalDose) + " mg"

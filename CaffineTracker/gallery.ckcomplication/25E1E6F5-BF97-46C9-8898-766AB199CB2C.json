@@ -1,0 +1,13 @@
+{
+  "class" : "CLKComplicationTemplateModularSmallStackText",
+  "highlightLine2" : false,
+  "line2TextProvider" : {
+    "class" : "CLKSimpleTextProvider",
+    "text" : "000"
+  },
+  "line1TextProvider" : {
+    "class" : "CLKSimpleTextProvider",
+    "text" : "--:--"
+  },
+  "version" : 30000
+}

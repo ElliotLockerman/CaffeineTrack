@@ -88,7 +88,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         if complication.family == .modularSmall {
             let template = CLKComplicationTemplateModularSmallStackText()
             template.line1TextProvider = CLKSimpleTextProvider(text: "--:--")
-            template.line2TextProvider = CLKSimpleTextProvider(text: "000")
+            template.line2TextProvider = CLKSimpleTextProvider(text: "---")
             
             handler(template)
             return;
