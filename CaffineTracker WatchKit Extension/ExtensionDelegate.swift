@@ -31,7 +31,14 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
             switch task {
             case let backgroundTask as WKApplicationRefreshBackgroundTask:
                 // Be sure to complete the background task once you’re done.
-                backgroundTask.setTaskCompletedWithSnapshot(false)
+                var snap = false
+                let controller = WKExtension.shared().rootInterfaceController
+                if let controller = controller as? InterfaceController {
+                    controller.refresh()
+                    controller.scheduleRefresh()
+                    snap = true
+                }
+                backgroundTask.setTaskCompletedWithSnapshot(snap)
             case let snapshotTask as WKSnapshotRefreshBackgroundTask:
                 // Snapshot tasks have a unique completion call, make sure to set your expiration date
                 snapshotTask.setTaskCompleted(restoredDefaultState: true, estimatedSnapshotExpiration: Date.distantFuture, userInfo: nil)

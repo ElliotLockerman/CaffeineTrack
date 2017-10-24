@@ -26,7 +26,6 @@ class InterfaceController: WKInterfaceController {
         // Configure interface objects here.
         
         HealthKitStuff.authorizeHealthKit { (authorized, error) in
-            print(" callback")
             guard authorized else {
                 let baseMessage = "HealthKit Authorization Failed"
                 if let error = error {
@@ -38,8 +37,8 @@ class InterfaceController: WKInterfaceController {
             }
             
             self.refresh()
+//            self.scheduleRefresh()
         }
-//        scheduleRefresh()
     }
     
 
@@ -159,13 +158,10 @@ class InterfaceController: WKInterfaceController {
     }
     
     func scheduleRefresh() {
-        WKExtension.shared().scheduleBackgroundRefresh(withPreferredDate: Date().addingTimeInterval(TimeInterval(60 * 60)), userInfo: nil) { (error) in
-            if let _ = error {
-                // TODO: Should log this somehow
-                return;
+        WKExtension.shared().scheduleBackgroundRefresh(withPreferredDate: Date(timeIntervalSinceNow: 60*60), userInfo: nil) { (error) in
+            if let error = error {
+                print("Watch background refresh scheduling error \(error)")
             }
-            self.refresh()
-            self.scheduleRefresh()
         }
     }
 }
