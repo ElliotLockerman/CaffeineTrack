@@ -21,9 +21,10 @@
                         <label alignment="left" text="--- mg total" textAlignment="justified" id="S8q-j6-ER5">
                             <fontDescription key="font" type="system" pointSize="20"/>
                         </label>
-                        <button width="1" height="42" alignment="left" verticalAlignment="bottom" title="Log Dose (100mg)" id="P5K-nq-Ya0">
+                        <button width="1" height="42" alignment="left" verticalAlignment="bottom" title="Log Dose" id="P5K-nq-Ya0">
                             <connections>
-                                <action selector="logDose" destination="AgC-eL-Hgc" id="Lch-QG-XKl"/>
+                                <action selector="logDose" destination="AgC-eL-Hgc" id="9dL-m1-ds5"/>
+                                <segue destination="RgA-lu-dEC" kind="modal" id="rIe-WR-nlq"/>
                             </connections>
                         </button>
                     </items>
@@ -43,6 +44,29 @@
                 </controller>
             </objects>
             <point key="canvasLocation" x="159.53846153846155" y="85.871794871794876"/>
+        </scene>
+        <!--Picker Controller-->
+        <scene sceneID="cTT-KZ-UHn">
+            <objects>
+                <controller id="RgA-lu-dEC" customClass="PickerController" customModule="CaffineTracker_WatchKit_Extension">
+                    <items>
+                        <picker height="100" alignment="left" id="SbB-N1-sPD">
+                            <connections>
+                                <action selector="pickerUpdated:" destination="RgA-lu-dEC" id="rdL-Fj-qs9"/>
+                            </connections>
+                        </picker>
+                        <button width="1" alignment="left" verticalAlignment="bottom" title="Select" id="b6H-ML-dOZ">
+                            <connections>
+                                <action selector="selectButton" destination="RgA-lu-dEC" id="Zfy-3z-RuW"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="picker" destination="SbB-N1-sPD" id="gzt-U2-g8C"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="448.10256410256414" y="56.230769230769234"/>
         </scene>
     </scenes>
 </document>

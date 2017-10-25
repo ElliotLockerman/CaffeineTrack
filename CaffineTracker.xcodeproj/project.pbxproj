@@ -26,6 +26,7 @@
 		65AE2AEE1F79BDDF009946A7 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AE2AED1F79BDDF009946A7 /* ComplicationController.swift */; };
 		65AE2AF01F79BDDF009946A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65AE2AEF1F79BDDF009946A7 /* Assets.xcassets */; };
 		65AE2B021F79BDE8009946A7 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65AE2B011F79BDE8009946A7 /* HealthKit.framework */; };
+		65E8D2B61FA018E200FB41E1 /* PickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DF2CC81F9FFFB600B15BAA /* PickerController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		65AE2AFF1F79BDE8009946A7 /* CaffineTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CaffineTracker.entitlements; sourceTree = "<group>"; };
 		65AE2B011F79BDE8009946A7 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		65B43B4F1F7B2C5500182A97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		65DF2CC81F9FFFB600B15BAA /* PickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				65956C1E1F79C7B7005C2610 /* CaffineTracker WatchKit Extension.entitlements */,
+				65DF2CC81F9FFFB600B15BAA /* PickerController.swift */,
 				65AE2AE91F79BDDF009946A7 /* InterfaceController.swift */,
 				65AE2AEB1F79BDDF009946A7 /* ExtensionDelegate.swift */,
 				65AE2AED1F79BDDF009946A7 /* ComplicationController.swift */,
@@ -347,6 +350,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65E8D2B61FA018E200FB41E1 /* PickerController.swift in Sources */,
 				65956C1C1F79C034005C2610 /* HealthKitStuff.swift in Sources */,
 				65956C1D1F79C731005C2610 /* InterfaceController.swift in Sources */,
 				65AE2AEC1F79BDDF009946A7 /* ExtensionDelegate.swift in Sources */,

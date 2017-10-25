@@ -10,7 +10,8 @@ import Foundation
 import WatchKit
 import ClockKit
 
-class InterfaceController: WKInterfaceController {
+class InterfaceController: WKInterfaceController, DosePickerDelegate {
+
 
     @IBOutlet var lastDoseLabel: WKInterfaceLabel!
     @IBOutlet var totalDoseLabel: WKInterfaceLabel!
@@ -141,10 +142,23 @@ class InterfaceController: WKInterfaceController {
     @IBAction func fetch() {
         refresh()
     }
-    
+
+    /*
     @IBAction func logDose() {
+        self.presentController(withName: "PickerController", context: self)
+    }
+    */
+    
+
+    
+    override func contextForSegue(withIdentifier segueIdentifier: String) -> Any? {
+        return self
+    }
+    
+    func doseSelected(_ dose: Int) {
+        print("dose selected")
         hideText()
-        HealthKitStuff.logDose(dose: 100) { (error) in
+        HealthKitStuff.logDose(dose: Double(dose)) { (error) in
             if let error = error {
                 self.error_message(error.localizedDescription)
             }
