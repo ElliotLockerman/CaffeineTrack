@@ -34,18 +34,12 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         handler(.showOnLockScreen)
     }
     
-    // MARK: - Timeline Population
-    
-    func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
-        // Call the handler with the current timeline entry
-        guard let controller = WKExtension.shared().rootInterfaceController as? InterfaceController else {
-            print("Root controller wasn't InterfaceController")
-            handler(nil)
-            return
-        }
+    func entryAtDate(_ date: Date, for complication: CLKComplication) -> CLKComplicationTimelineEntry {
+        let controller = WKExtension.shared().rootInterfaceController as! InterfaceController
         
-        let date = CLKSimpleTextProvider(text: "\(controller.getAgoComplication(date: Date()))")
-        let dose = CLKSimpleTextProvider(text: "\(controller.getDoseComplication())")
+        
+        let dateProvider = CLKSimpleTextProvider(text: "\(controller.getAgoComplication(date: date))")
+        let doseProvider = CLKSimpleTextProvider(text: "\(controller.getDoseComplication())")
         
         var template: CLKComplicationTemplate;
         
@@ -53,44 +47,49 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             
         case .modularSmall:
             let temp = CLKComplicationTemplateModularSmallStackText()
-            temp.line1TextProvider = date
-            temp.line2TextProvider = dose
+            temp.line1TextProvider = dateProvider
+            temp.line2TextProvider = doseProvider
             template = temp
             
         case .modularLarge:
             let temp = CLKComplicationTemplateModularLargeStandardBody()
             temp.headerTextProvider = CLKSimpleTextProvider(text: "Today's Caffeine")
-            temp.body1TextProvider = CLKSimpleTextProvider(text: "\(controller.getAgo(date: Date()))")
+            temp.body1TextProvider = CLKSimpleTextProvider(text: "\(controller.getAgo(date: date))")
             temp.body2TextProvider = CLKSimpleTextProvider(text: "\(controller.getDoseComplication()) mg")
             template = temp
-        
+            
         case .circularSmall:
             let temp = CLKComplicationTemplateCircularSmallStackText()
-            temp.line1TextProvider = date
-            temp.line2TextProvider = dose
+            temp.line1TextProvider = dateProvider
+            temp.line2TextProvider = doseProvider
             template = temp
             
         case .extraLarge:
             let temp = CLKComplicationTemplateExtraLargeStackText()
-            temp.line1TextProvider = date
-            temp.line2TextProvider = dose
+            temp.line1TextProvider = dateProvider
+            temp.line2TextProvider = doseProvider
             template = temp
             
         case .utilitarianSmall: fallthrough
         case .utilitarianSmallFlat:
             let temp = CLKComplicationTemplateUtilitarianSmallFlat()
-            temp.textProvider = CLKSimpleTextProvider(text: "\(controller.getAgoComplication(date: Date()))/\(controller.getDoseComplication())")
+            temp.textProvider = CLKSimpleTextProvider(text: "\(controller.getAgoComplication(date: date))/\(controller.getDoseComplication())")
             template = temp
-        
+            
         case .utilitarianLarge:
             let temp = CLKComplicationTemplateUtilitarianLargeFlat()
-            temp.textProvider = CLKSimpleTextProvider(text: "\(controller.getAgoComplication(date: Date())) / \(controller.getDoseComplication()) mg")
+            temp.textProvider = CLKSimpleTextProvider(text: "\(controller.getAgoComplication(date: date)) / \(controller.getDoseComplication()) mg")
             template = temp
         }
         
         
-        let timelineEntry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
-        handler(timelineEntry)
+        return CLKComplicationTimelineEntry(date: date, complicationTemplate: template)
+    }
+    
+    func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
+        // Call the handler with the current timeline entry
+        
+        handler(entryAtDate(Date(), for: complication))
     }
     
     func getTimelineEntries(for complication: CLKComplication, before date: Date, limit: Int, withHandler handler: @escaping ([CLKComplicationTimelineEntry]?) -> Void) {
@@ -100,44 +99,64 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     func getTimelineEntries(for complication: CLKComplication, after date: Date, limit: Int, withHandler handler: @escaping ([CLKComplicationTimelineEntry]?) -> Void) {
         // Call the handler with the timeline entries after to the given date
-        guard let controller = WKExtension.shared().rootInterfaceController as? InterfaceController else {
-            handler(nil)
-            return
-        }
 
-        if complication.family == .modularSmall {
-            let loops = min(limit, 120)
-            var arr = [CLKComplicationTimelineEntry]()
-            for i in 0 ..< loops {
-                let date2 = date.addingTimeInterval(TimeInterval(i * (60)))
-                let template = CLKComplicationTemplateModularSmallStackText()
-                template.line1TextProvider = CLKSimpleTextProvider(text: "\(controller.getAgoComplication(date: date2))")
-                template.line2TextProvider = CLKSimpleTextProvider(text: "\(controller.getDoseComplication())")
-                
-                let timelineEntry = CLKComplicationTimelineEntry(date: date2, complicationTemplate: template)
-                arr.append(timelineEntry)
-            }
-            handler(arr)
-            return;
+        var arr = [CLKComplicationTimelineEntry]()
+        let loops = min(limit, 120)
+        for i in 1 ... loops {
+            let date2 = date.addingTimeInterval(TimeInterval(i * (60)))
+            arr.append(entryAtDate(date2, for: complication))
         }
-        
-        
-        handler(nil)
+        handler(arr)
+        return;
     }
     
     
     func getLocalizableSampleTemplate(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTemplate?) -> Void) {
         // This method will be called once per supported complication, and the results will be cached
         // Call the handler with the current timeline entry
-        if complication.family == .modularSmall {
-            let template = CLKComplicationTemplateModularSmallStackText()
-            template.line1TextProvider = CLKSimpleTextProvider(text: "--:--")
-            template.line2TextProvider = CLKSimpleTextProvider(text: "---")
+
+        var template: CLKComplicationTemplate
+        
+        switch complication.family {
             
-            handler(template)
-            return;
+        case .modularSmall:
+            let temp = CLKComplicationTemplateModularSmallStackText()
+            temp.line1TextProvider = CLKSimpleTextProvider(text: "--:--")
+            temp.line2TextProvider = CLKSimpleTextProvider(text: "---")
+            template = temp
+            
+        case .modularLarge:
+            let temp = CLKComplicationTemplateModularLargeStandardBody()
+            temp.headerTextProvider = CLKSimpleTextProvider(text: "Today's Caffeine")
+            temp.body1TextProvider = CLKSimpleTextProvider(text: "-h --m ago")
+            temp.body2TextProvider = CLKSimpleTextProvider(text: "---")
+            template = temp
+            
+        case .circularSmall:
+            let temp = CLKComplicationTemplateCircularSmallStackText()
+            temp.line1TextProvider = CLKSimpleTextProvider(text: "--:--")
+            temp.line2TextProvider = CLKSimpleTextProvider(text: "---")
+            template = temp
+            
+        case .extraLarge:
+            let temp = CLKComplicationTemplateExtraLargeStackText()
+            temp.line1TextProvider = CLKSimpleTextProvider(text: "--:--")
+            temp.line2TextProvider = CLKSimpleTextProvider(text: "---")
+            template = temp
+            
+        case .utilitarianSmall: fallthrough
+        case .utilitarianSmallFlat:
+            let temp = CLKComplicationTemplateUtilitarianSmallFlat()
+            temp.textProvider = CLKSimpleTextProvider(text: "--:--/---")
+            template = temp
+            
+        case .utilitarianLarge:
+            let temp = CLKComplicationTemplateUtilitarianLargeFlat()
+            temp.textProvider = CLKSimpleTextProvider(text: "--:-- / --- mg")
+            template = temp
         }
-        handler(nil)
+        
+        handler(template)
     }
     
 }
