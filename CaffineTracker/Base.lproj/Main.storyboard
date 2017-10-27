@@ -13,7 +13,7 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CaffineTracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="GradView" customModule="CaffineTracker" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -27,7 +27,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="0.20000000000000001" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.070000000000000007" green="0.070000000000000007" blue="0.070000000000000007" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="aJh-nM-g3s" firstAttribute="top" secondItem="dkG-b1-5iu" secondAttribute="top" constant="60" id="Btb-ve-NHI"/>
                                     <constraint firstAttribute="height" constant="109" id="iDt-ky-8JM"/>
@@ -47,31 +47,43 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j5i-ih-yk4">
-                                <rect key="frame" x="161" y="581" width="53" height="30"/>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Refresh">
-                                            <attributes>
-                                                <color key="NSColor" cyan="0.0" magenta="0.0" yellow="0.0" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
-                                                <font key="NSFont" metaFont="system" size="15"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                <integer key="NSUnderline" value="1"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                </state>
-                                <connections>
-                                    <action selector="fetch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gtk-VG-6LO"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DRf-wJ-BEJ">
+                                <rect key="frame" x="0.0" y="592" width="375" height="75"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j5i-ih-yk4">
+                                        <rect key="frame" x="161" y="22.5" width="53" height="30"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Refresh">
+                                                    <attributes>
+                                                        <color key="NSColor" cyan="0.0" magenta="0.0" yellow="0.0" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                                        <font key="NSFont" metaFont="system" size="15"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        <integer key="NSUnderline" value="1"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                        <connections>
+                                            <action selector="fetch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gtk-VG-6LO"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.070000000000000007" green="0.070000000000000007" blue="0.070000000000000007" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="By3-as-0YY"/>
+                                    <constraint firstItem="j5i-ih-yk4" firstAttribute="centerY" secondItem="DRf-wJ-BEJ" secondAttribute="centerY" id="DBz-lt-Pbb"/>
+                                    <constraint firstItem="j5i-ih-yk4" firstAttribute="centerX" secondItem="DRf-wJ-BEJ" secondAttribute="centerX" id="XeH-7t-B3I"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.12" green="0.12" blue="0.12" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Uee-0j-aNJ" firstAttribute="bottom" secondItem="j5i-ih-yk4" secondAttribute="bottom" constant="56" id="Gc2-Xm-d0e"/>
-                            <constraint firstItem="j5i-ih-yk4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="L3a-Ks-hYf"/>
+                            <constraint firstItem="DRf-wJ-BEJ" firstAttribute="leading" secondItem="Uee-0j-aNJ" secondAttribute="leading" id="IWJ-RT-fkU"/>
                             <constraint firstItem="dkG-b1-5iu" firstAttribute="leading" secondItem="Uee-0j-aNJ" secondAttribute="leading" id="WHq-2y-Jkc"/>
+                            <constraint firstItem="DRf-wJ-BEJ" firstAttribute="bottom" secondItem="Uee-0j-aNJ" secondAttribute="bottom" id="aDf-fj-0eR"/>
                             <constraint firstItem="aaa-AE-khq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="da2-UT-YEY"/>
+                            <constraint firstItem="DRf-wJ-BEJ" firstAttribute="trailing" secondItem="Uee-0j-aNJ" secondAttribute="trailing" id="mgl-IX-yuo"/>
                             <constraint firstItem="aaa-AE-khq" firstAttribute="top" secondItem="dkG-b1-5iu" secondAttribute="bottom" constant="101" id="pH2-ut-URK"/>
                             <constraint firstItem="8yz-jA-aKv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tP8-k2-Zt7"/>
                             <constraint firstItem="dkG-b1-5iu" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="wyl-fb-rvc"/>
@@ -79,14 +91,6 @@
                             <constraint firstItem="dkG-b1-5iu" firstAttribute="trailing" secondItem="Uee-0j-aNJ" secondAttribute="trailing" id="z53-M0-MX2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Uee-0j-aNJ"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="color" keyPath="colorTop">
-                                <color key="value" red="0.35096889734268188" green="0.84831452369689941" blue="0.98638159036636353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="color" keyPath="colorBottom">
-                                <color key="value" red="0.18629437685012817" green="0.57104051113128662" blue="0.98648661375045776" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
                         <outlet property="lastDoseLabel" destination="aaa-AE-khq" id="jAM-Tg-vFw"/>
