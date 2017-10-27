@@ -31,7 +31,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     }
     
     func getPrivacyBehavior(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationPrivacyBehavior) -> Void) {
-        handler(.showOnLockScreen)
+        handler(.hideOnLockScreen)
     }
     
     func entryAtDate(_ date: Date, for complication: CLKComplication) -> CLKComplicationTimelineEntry {

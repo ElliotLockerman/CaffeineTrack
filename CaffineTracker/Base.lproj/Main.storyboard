@@ -26,11 +26,22 @@
                                         <color key="textColor" cyan="0.0" magenta="0.0" yellow="0.0" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1sh-KR-FkS">
+                                        <rect key="frame" x="319" y="67" width="22" height="22"/>
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <segue destination="EuL-Py-hof" kind="popoverPresentation" popoverAnchorView="1sh-KR-FkS" id="eRN-6e-vtV">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.070000000000000007" green="0.070000000000000007" blue="0.070000000000000007" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="aJh-nM-g3s" firstAttribute="top" secondItem="dkG-b1-5iu" secondAttribute="top" constant="60" id="Btb-ve-NHI"/>
+                                    <constraint firstAttribute="trailing" secondItem="1sh-KR-FkS" secondAttribute="trailing" constant="34" id="R1s-vK-m1s"/>
                                     <constraint firstAttribute="height" constant="109" id="iDt-ky-8JM"/>
+                                    <constraint firstItem="1sh-KR-FkS" firstAttribute="centerY" secondItem="aJh-nM-g3s" secondAttribute="centerY" constant="1.25" id="kGL-g1-lmn"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="aJh-nM-g3s" secondAttribute="trailing" constant="20" id="o7m-o4-SYQ"/>
                                     <constraint firstItem="aJh-nM-g3s" firstAttribute="leading" secondItem="dkG-b1-5iu" secondAttribute="leading" constant="34" id="y5f-I0-UJV"/>
                                 </constraints>
@@ -100,6 +111,103 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="45.600000000000001" y="37.331334332833585"/>
+        </scene>
+        <!--Info Controller-->
+        <scene sceneID="nsf-uh-wiZ">
+            <objects>
+                <viewController id="EuL-Py-hof" customClass="InfoController" customModule="CaffineTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hNI-59-uxj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mjc-NH-JOr">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="109"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZPs-5h-fZd">
+                                        <rect key="frame" x="20" y="65" width="34" height="30"/>
+                                        <state key="normal" title="Back">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="back:" destination="EuL-Py-hof" eventType="touchUpInside" id="jBc-ss-33g"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4cX-Wi-Z37">
+                                        <rect key="frame" x="169" y="67.5" width="38.5" height="26.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.070000000000000007" green="0.070000000000000007" blue="0.070000000000000007" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="ZPs-5h-fZd" secondAttribute="bottom" constant="14" id="Dcd-dw-Uao"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ZPs-5h-fZd" secondAttribute="trailing" constant="20" id="HI9-M3-ndZ"/>
+                                    <constraint firstItem="ZPs-5h-fZd" firstAttribute="leading" secondItem="Mjc-NH-JOr" secondAttribute="leading" constant="20" id="d6F-TN-0LB"/>
+                                    <constraint firstAttribute="height" constant="109" id="hoz-oV-neB"/>
+                                    <constraint firstItem="4cX-Wi-Z37" firstAttribute="centerY" secondItem="ZPs-5h-fZd" secondAttribute="centerY" id="hzZ-QT-mRo"/>
+                                    <constraint firstItem="4cX-Wi-Z37" firstAttribute="centerX" secondItem="Mjc-NH-JOr" secondAttribute="centerX" id="lf5-rk-zh6"/>
+                                </constraints>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QHY-xA-0V5">
+                                <rect key="frame" x="25" y="226" width="135" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Privacy Policy">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="18" name=".SFNSText"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oiy-E8-Caa">
+                                <rect key="frame" x="25" y="255" width="249" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="We do not collect any information.">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="14" name=".AppleSystemUIFont"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Qk-R7-hXh">
+                                <rect key="frame" x="25" y="130" width="334" height="49.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="For more information and help, please visit www.elliot.lockerman.info/projects/caffeinetracker">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="14" name=".SFNSText"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.12" green="0.12" blue="0.12" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Mjc-NH-JOr" firstAttribute="leading" secondItem="pt1-ec-AUw" secondAttribute="leading" id="87B-6V-n0u"/>
+                            <constraint firstItem="Mjc-NH-JOr" firstAttribute="trailing" secondItem="pt1-ec-AUw" secondAttribute="trailing" id="Ur2-U3-W4F"/>
+                            <constraint firstItem="Mjc-NH-JOr" firstAttribute="top" secondItem="hNI-59-uxj" secondAttribute="top" id="hCW-fA-Gaa"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="pt1-ec-AUw"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G57-sa-KU9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="796" y="36.431784107946029"/>
         </scene>
     </scenes>
 </document>

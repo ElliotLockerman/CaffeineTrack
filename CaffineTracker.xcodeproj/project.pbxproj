@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		655A3AC61F7B324B00EFE894 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65B43B4F1F7B2C5500182A97 /* Assets.xcassets */; };
+		65622B491FA2BA8700EF3658 /* InfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65622B481FA2BA8700EF3658 /* InfoController.swift */; };
 		65956C1A1F79BE3D005C2610 /* HealthKitStuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65956C191F79BE3D005C2610 /* HealthKitStuff.swift */; };
 		65956C1C1F79C034005C2610 /* HealthKitStuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65956C191F79BE3D005C2610 /* HealthKitStuff.swift */; };
 		65956C1D1F79C731005C2610 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AE2AE91F79BDDF009946A7 /* InterfaceController.swift */; };
@@ -70,6 +71,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		65622B481FA2BA8700EF3658 /* InfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoController.swift; sourceTree = "<group>"; };
 		657EBCBF1F7C81DA005E9E44 /* gallery.ckcomplication */ = {isa = PBXFileReference; lastKnownFileType = folder; path = gallery.ckcomplication; sourceTree = "<group>"; };
 		65956C191F79BE3D005C2610 /* HealthKitStuff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitStuff.swift; sourceTree = "<group>"; };
 		65956C1E1F79C7B7005C2610 /* CaffineTracker WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "CaffineTracker WatchKit Extension.entitlements"; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				65AE2ACF1F79BDDE009946A7 /* LaunchScreen.storyboard */,
 				65AE2AD21F79BDDE009946A7 /* Info.plist */,
 				65956C191F79BE3D005C2610 /* HealthKitStuff.swift */,
+				65622B481FA2BA8700EF3658 /* InfoController.swift */,
 			);
 			path = CaffineTracker;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65956C1A1F79BE3D005C2610 /* HealthKitStuff.swift in Sources */,
+				65622B491FA2BA8700EF3658 /* InfoController.swift in Sources */,
 				65AE2AC91F79BDDE009946A7 /* ViewController.swift in Sources */,
 				65AE2AC71F79BDDE009946A7 /* AppDelegate.swift in Sources */,
 			);

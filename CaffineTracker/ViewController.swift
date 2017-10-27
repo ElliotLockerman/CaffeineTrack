@@ -92,15 +92,6 @@ class ViewController: UIViewController {
     }
     
 
-    @IBAction func logDose(_ sender: Any) {
-        hideText()
-        HealthKitStuff.logDose(dose: 100) { (error) in
-            if let error = error {
-                self.error_message(error.localizedDescription)
-            }
-            self.refresh()
-        }
-    }
     
     func error_message(_ msg: String) {
         let alert = UIAlertController(title: "Alert", message: msg, preferredStyle: UIAlertControllerStyle.alert)
