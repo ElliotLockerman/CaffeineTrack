@@ -1,6 +1,10 @@
 
 # CaffeineTracker
 
+![Screenshot A](images/screenshot_a.png)
+![Screenshot B](images/screenshot_b.png)
+![Screenshot C](images/screenshot_c.png)
+
 CaffeineTracker is an Apple Watch app for monitoring caffeine usage. Doses are recorded in HealthKit, and the time since the most recent dose, as well as total does for the day are displayed in the app, as well as on the complication.
  
 
